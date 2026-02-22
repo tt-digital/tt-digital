@@ -240,27 +240,22 @@ pre code { background: none; padding: 0; color: inherit; }
 }
 
 .read-more {
-  background: none;
-  border: none;
   color: var(--btn-text);
   font-family: inherit;
   font-size: 0.68rem;
   letter-spacing: 0.1em;
   padding: 0;
   cursor: pointer;
+  text-decoration: none;
   transition: color 0.15s;
 }
 .read-more:hover { color: var(--btn-hover); }
 .read-more::after { content: ' →'; }
 
 /* ── Single Post ── */
-.single-post { display: none; padding-top: 2.5rem; }
-.single-post.active { display: block; }
-.post-list.hidden { display: none; }
+.single-post { padding-top: 2.5rem; }
 
 .back-btn {
-  background: none;
-  border: none;
   color: var(--back-btn-text);
   font-family: inherit;
   font-size: 0.68rem;
@@ -268,7 +263,7 @@ pre code { background: none; padding: 0; color: inherit; }
   padding: 0;
   margin-bottom: 2rem;
   display: block;
-  cursor: pointer;
+  text-decoration: none;
   transition: color 0.15s;
 }
 .back-btn:hover { color: var(--back-btn-hover); }

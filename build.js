@@ -113,6 +113,51 @@ function dateFromFilename(f) {
   return m ? m[1] : null;
 }
 
+// ── Post HTML template ────────────────────────────────────────────────────────
+function renderPostHtml(post) {
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${post.title} — tt-digital</title>
+<meta name="description" content="${post.excerpt}">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../css/style.css">
+<script src="../js/theme.js"></script>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="../index.html">tt-digital</a>
+  <nav>
+    <a href="../index.html">posts</a>
+    <a href="../about.html">about</a>
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()"></button>
+  </nav>
+</header>
+
+<div class="status">// ${post.date} &nbsp;·&nbsp; ${post.tag}</div>
+
+<main>
+  <article class="single-post">
+    <a class="back-btn" href="../index.html">back</a>
+    <h1>${post.title}</h1>
+    <div class="post-body">${post.body}</div>
+  </article>
+</main>
+
+<footer>
+  <span>tt-digital v1.0</span>
+  <span></span>
+</footer>
+
+</body>
+</html>
+`;
+}
+
 // ── Main ──────────────────────────────────────────────────────────────────────
 const files = fs.readdirSync(POSTS_DIR)
   .filter(f => f.endsWith('.md'))
@@ -127,8 +172,9 @@ if (files.length === 0) {
 const posts = files.map((filename, i) => {
   const src              = fs.readFileSync(path.join(POSTS_DIR, filename), 'utf8');
   const { meta, body }   = parseFrontmatter(src);
+  const htmlFilename     = filename.replace('.md', '.html');
 
-  return {
+  const post = {
     id:      i + 1,
     slug:    slugFromFilename(filename),
     date:    meta.date    || dateFromFilename(filename) || '',
@@ -136,7 +182,12 @@ const posts = files.map((filename, i) => {
     title:   meta.title   || slugFromFilename(filename),
     excerpt: meta.excerpt || '',
     body:    parseMarkdown(body),
+    url:     `posts/${htmlFilename}`,
   };
+
+  fs.writeFileSync(path.join(POSTS_DIR, htmlFilename), renderPostHtml(post));
+
+  return post;
 });
 
 fs.writeFileSync(OUT_FILE, `const posts = ${JSON.stringify(posts, null, 2)};\n`);
