@@ -133,6 +133,11 @@ function renderPostHtml(post) {
   <a class="logo" href="../index.html">tt-digital</a>
   <nav>
     <a href="../index.html">posts</a>
+    <a href="../trails.html">trails</a>
+    <div class="nav-dropdown">
+      <a href="#" id="categoriesBtn" onclick="toggleDropdown(); return false;">categories</a>
+      <div class="dropdown-menu" id="dropdownMenu"></div>
+    </div>
     <a href="../about.html">about</a>
     <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()"></button>
   </nav>
@@ -153,6 +158,8 @@ function renderPostHtml(post) {
   <span></span>
 </footer>
 
+<script src="../js/posts.js"></script>
+<script src="../js/nav.js"></script>
 </body>
 </html>
 `;
@@ -192,3 +199,21 @@ const posts = files.map((filename, i) => {
 
 fs.writeFileSync(OUT_FILE, `const posts = ${JSON.stringify(posts, null, 2)};\n`);
 console.log(`built ${posts.length} post${posts.length === 1 ? '' : 's'} → js/posts.js`);
+
+// ── GPX index ─────────────────────────────────────────────────────────────────
+const GPX_DIR      = path.join(__dirname, 'gpx');
+const GPX_OUT_FILE = path.join(GPX_DIR, 'index.json');
+
+if (fs.existsSync(GPX_DIR)) {
+  const gpxFiles = fs.readdirSync(GPX_DIR)
+    .filter(f => f.endsWith('.gpx'))
+    .sort();
+
+  const trails = gpxFiles.map(f => ({
+    name: f.replace(/\.gpx$/, '').replace(/-/g, ' '),
+    file: `gpx/${f}`,
+  }));
+
+  fs.writeFileSync(GPX_OUT_FILE, JSON.stringify(trails, null, 2) + '\n');
+  console.log(`indexed ${trails.length} trail${trails.length === 1 ? '' : 's'} → gpx/index.json`);
+}
