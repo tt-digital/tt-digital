@@ -108,5 +108,25 @@ const posts = [
     "excerpt": "Memory is lossy by design. Maybe that's not a flaw.",
     "body": "<p>We treat forgetting as failure. A thing happened, and now it's gone, and that's a loss. We take photos to prevent it, write notes to catch it, build systems to hold it all. As if the point were to keep everything.</p>\n<p>But the brain forgets for reasons. The trivial fades. The emotional stays. The things you return to get reinforced; the things you never revisit dissolve. This is not malfunction — it's curation.</p>\n<blockquote>You don't remember your life. You remember a version of it, rebuilt each time from whatever remains.</blockquote>\n<h2>What Forgetting Leaves Room For</h2>\n<p>A friend once told me she stopped journaling because re-reading old entries made her feel stuck in versions of herself she'd already left behind. The forgetting, she said, was what allowed her to change.</p>\n<p>There's something in that. Memory preserves identity. Forgetting makes space for it to evolve.</p>\n<h2>The Things That Stay</h2>\n<p>What I find interesting is not what I forget but what persists without effort — the images, phrases, and moments that simply refuse to go. I've stopped trying to understand why those particular things and not others. Whatever the mechanism, it seems to know something I don't.</p>",
     "url": "posts/2025-12-15-on-forgetting.html"
+  },
+  {
+    "id": 12,
+    "slug": "rosskopf-spitzingsee",
+    "date": "2025-10-12",
+    "tag": "trail",
+    "title": "Rosskopf via Spitzingsee",
+    "excerpt": "October in the Bavarian Alps — frost on the higher trail before noon, five hundred metres of gain, and the specific quality of light that only comes in autumn.",
+    "body": "<p>October in the Bavarian Alps means something specific: the tourists are mostly gone, the days have that clean northern light, and there is frost on the higher trails before noon if you started early enough. Which we had.</p>\n<p>The route from Spitzingsee gains five hundred metres before the ridge, then follows it east in full exposure. The kind of walk where the wind decides the mood.</p>\n<blockquote>At altitude in October you are not in summer anymore. You are in something else — closer to winter, closer to what the mountains are most of the year.</blockquote>\n<h2>What changes above the treeline</h2>\n<p>Above 1400 metres the scale shifts. Below that point you are moving through landscape; above it, the landscape is moving around you. Clouds on a ridge don't look decorative. They look structural.</p>\n<p>The descent back via the western shoulder took nearly as long as the ascent. The knees remember what the lungs already knew. We were back at the car by early afternoon with that particular tiredness that comes from having been somewhere real.</p>",
+    "url": "posts/2025-10-12-rosskopf-spitzingsee.html"
+  },
+  {
+    "id": 13,
+    "slug": "tegernsee-rundweg",
+    "date": "2025-08-24",
+    "tag": "trail",
+    "title": "Tegernsee Rundweg",
+    "excerpt": "A summer loop from the shore into the hills above the lake — and back down before the afternoon heat sets in.",
+    "body": "<p>The path out of town follows the eastern shore before climbing into the hills. By ten in the morning the trail is quiet — a few older couples with walking poles, a dog pulling its owner uphill. Everyone else is still on the terrace below.</p>\n<p>There is something particular about hiking in summer heat: the shade of the forest matters in a way it doesn't at other times. You move from brightness to cool and back, and each transition feels earned.</p>\n<blockquote>A lake is not the same seen from the water and seen from above. Both are correct, but only one requires the climb.</blockquote>\n<h2>On the descent</h2>\n<p>Coming down in the early afternoon, the town looked small and exact against the water. The kind of view that makes ordinary things seem well-arranged. I sat with it for a moment before walking back in.</p>\n<p>The whole loop was about four hours. No dramatic exposure, no scrambling — just a clean circuit through beech forest and open meadow with the lake appearing and disappearing below. Exactly what a Sunday in August should be.</p>",
+    "url": "posts/2025-08-24-tegernsee-rundweg.html"
   }
 ];
