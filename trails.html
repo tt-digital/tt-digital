@@ -29,19 +29,21 @@
 <div class="status" id="status">// trails</div>
 
 <main>
-  <div id="trailList" class="trail-list"></div>
+  <div id="logbook" class="logbook"></div>
 
-  <div id="map"></div>
+  <div id="trailDetail" class="trail-detail" style="display:none">
+    <div id="map"></div>
 
-  <div class="trail-stats" id="trailStats">
-    <div class="trail-stat"><span>distance</span><span id="statDist">—</span></div>
-    <div class="trail-stat"><span>gain</span><span id="statGain">—</span></div>
-    <div class="trail-stat"><span>loss</span><span id="statLoss">—</span></div>
-    <div class="trail-stat"><span>highest</span><span id="statHigh">—</span></div>
-  </div>
+    <div class="trail-stats" id="trailStats">
+      <div class="trail-stat"><span>distance</span><span id="statDist">—</span></div>
+      <div class="trail-stat"><span>gain</span><span id="statGain">—</span></div>
+      <div class="trail-stat"><span>loss</span><span id="statLoss">—</span></div>
+      <div class="trail-stat"><span>highest</span><span id="statHigh">—</span></div>
+    </div>
 
-  <div id="elevationWrap" class="elevation-wrap">
-    <canvas id="elevationChart"></canvas>
+    <div id="elevationWrap" class="elevation-wrap">
+      <canvas id="elevationChart"></canvas>
+    </div>
   </div>
 </main>
 

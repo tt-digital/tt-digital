@@ -1,6 +1,14 @@
 [
   {
-    "name": "24 Aug 2025",
-    "file": "gpx/24. August 2025 at 1538.gpx"
+    "name": "Rosskopf via Spitzingsee",
+    "date": "2025-10-12",
+    "location": "Spitzingsee, Bavaria",
+    "file": "gpx/2025-10-12-rosskopf-spitzingsee.gpx"
+  },
+  {
+    "name": "Tegernsee Rundweg",
+    "date": "2025-08-24",
+    "location": "Tegernsee, Bavaria",
+    "file": "gpx/2025-08-24-tegernsee-rundweg.gpx"
   }
 ]

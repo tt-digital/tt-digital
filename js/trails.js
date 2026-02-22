@@ -1,12 +1,12 @@
 // ── Tile sources ─────────────────────────────────────────────────────────────
 const TILES = {
   light: {
-    url:   'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-    attr:  '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    url:  'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+    attr: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
   },
   dark: {
-    url:   'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
-    attr:  '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> © <a href="https://carto.com/">CARTO</a>',
+    url:  'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+    attr: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> © <a href="https://carto.com/">CARTO</a>',
   },
 };
 
@@ -15,12 +15,13 @@ const FILL_COLOR  = { light: 'rgba(107,142,94,0.2)', dark: 'rgba(125,184,122,0.1
 
 // ── State ─────────────────────────────────────────────────────────────────────
 let map, tileLayer, trackLayer, hoverMarker, elevChart;
-let elevData = [];   // { lat, lon, ele, dist }
-let trails   = [];
-let activeIdx = 0;
+let trails   = [];   // { name, date, location, file, elevData, stats }
+let activeIdx = null;
+let mapReady  = false;
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 const dark = () => document.documentElement.getAttribute('data-theme') === 'dark';
+const $ = id => document.getElementById(id);
 
 function haversine(lat1, lon1, lat2, lon2) {
   const R = 6371e3;
@@ -31,22 +32,13 @@ function haversine(lat1, lon1, lat2, lon2) {
   return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 }
 
-// ── Map ───────────────────────────────────────────────────────────────────────
-function initMap() {
-  map = L.map('map', { zoomControl: true }).setView([51.5, 10], 6);
-
-  const t = dark() ? TILES.dark : TILES.light;
-  tileLayer = L.tileLayer(t.url, { attribution: t.attr, maxZoom: 19 }).addTo(map);
-
-  // Sync tile layer and chart colours when theme toggles
-  new MutationObserver(() => {
-    const t = dark() ? TILES.dark : TILES.light;
-    tileLayer.setUrl(t.url);
-    if (trackLayer) trackLayer.setStyle({ color: TRACK_COLOR[dark() ? 'dark' : 'light'] });
-    if (elevData.length) drawChart();
-  }).observe(document.documentElement, {
-    attributes: true, attributeFilter: ['data-theme'],
-  });
+function fmtDist(km)  { return km.toFixed(1) + ' km'; }
+function fmtGain(m)   { return '+' + Math.round(m) + ' m'; }
+function fmtEle(m)    { return Math.round(m) + ' m'; }
+function fmtDuration(seconds) {
+  const h = Math.floor(seconds / 3600);
+  const m = Math.floor((seconds % 3600) / 60);
+  return h > 0 ? `${h}h ${m}m` : `${m}m`;
 }
 
 // ── GPX parsing ───────────────────────────────────────────────────────────────
@@ -55,13 +47,20 @@ async function parseGpx(url) {
   const xml  = new DOMParser().parseFromString(await resp.text(), 'text/xml');
   const pts  = [...xml.querySelectorAll('trkpt')];
 
-  elevData = [];
-  let dist = 0, gain = 0, loss = 0, prevLat = null, prevLon = null, prevEle = null;
+  const elevData = [];
+  let dist = 0, gain = 0, loss = 0;
+  let prevLat = null, prevLon = null, prevEle = null;
+  let startTime = null, endTime = null;
 
   for (const pt of pts) {
     const lat = parseFloat(pt.getAttribute('lat'));
     const lon = parseFloat(pt.getAttribute('lon'));
     const ele = parseFloat(pt.querySelector('ele')?.textContent ?? 0);
+    const timeEl = pt.querySelector('time');
+    const t = timeEl ? new Date(timeEl.textContent) : null;
+
+    if (!startTime && t) startTime = t;
+    if (t) endTime = t;
 
     if (prevLat !== null) {
       dist += haversine(prevLat, prevLon, lat, lon);
@@ -73,36 +72,54 @@ async function parseGpx(url) {
     prevLat = lat; prevLon = lon; prevEle = ele;
   }
 
-  return { gain, loss,
-    totalDist: dist / 1000,
-    maxEle: Math.max(...elevData.map(p => p.ele)),
-    minEle: Math.min(...elevData.map(p => p.ele)),
+  const duration = (startTime && endTime)
+    ? (endTime - startTime) / 1000
+    : null;
+
+  return {
+    elevData,
+    stats: {
+      dist:     dist / 1000,
+      gain,
+      loss,
+      maxEle:   Math.max(...elevData.map(p => p.ele)),
+      minEle:   Math.min(...elevData.map(p => p.ele)),
+      duration,
+    },
   };
 }
 
-// ── Load a trail ──────────────────────────────────────────────────────────────
-async function loadTrail(idx) {
-  activeIdx = idx;
+// ── Map ───────────────────────────────────────────────────────────────────────
+function initMap() {
+  if (mapReady) return;
+  mapReady = true;
 
-  // highlight active pill
-  document.querySelectorAll('.trail-pill').forEach((el, i) =>
-    el.classList.toggle('active', i === idx));
+  map = L.map('map', { zoomControl: true }).setView([47.7, 11.8], 10);
+  const t = dark() ? TILES.dark : TILES.light;
+  tileLayer = L.tileLayer(t.url, { attribution: t.attr, maxZoom: 19 }).addTo(map);
 
-  // clear previous layers
+  new MutationObserver(() => {
+    const t = dark() ? TILES.dark : TILES.light;
+    tileLayer.setUrl(t.url);
+    if (trackLayer) trackLayer.setStyle({ color: TRACK_COLOR[dark() ? 'dark' : 'light'] });
+    if (activeIdx !== null && trails[activeIdx]?.elevData?.length) drawChart(trails[activeIdx].elevData);
+  }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+}
+
+// ── Draw track on map ─────────────────────────────────────────────────────────
+function showTrailOnMap(trail) {
+  initMap();
+
   if (trackLayer)  { map.removeLayer(trackLayer);  trackLayer  = null; }
   if (hoverMarker) { map.removeLayer(hoverMarker); hoverMarker = null; }
 
-  const trail = trails[idx];
-  const stats = await parseGpx(trail.file);
-  const theme = dark() ? 'dark' : 'light';
+  const theme   = dark() ? 'dark' : 'light';
+  const latlngs = trail.elevData.map(p => [p.lat, p.lon]);
 
-  // draw track
-  const latlngs = elevData.map(p => [p.lat, p.lon]);
   trackLayer = L.polyline(latlngs, {
     color: TRACK_COLOR[theme], weight: 3, opacity: 0.9,
   }).addTo(map);
 
-  // start (green) / end (red) dots
   const dot = (ll, fill) => L.circleMarker(ll, {
     radius: 5, color: '#fff', fillColor: fill, fillOpacity: 1, weight: 2,
   }).addTo(map);
@@ -112,24 +129,10 @@ async function loadTrail(idx) {
   }
 
   map.fitBounds(trackLayer.getBounds(), { padding: [24, 24] });
-
-  // stats bar
-  const $ = id => document.getElementById(id);
-  $('statDist').textContent = `${stats.totalDist.toFixed(1)} km`;
-  $('statGain').textContent = `+${Math.round(stats.gain)} m`;
-  $('statLoss').textContent = `−${Math.round(stats.loss)} m`;
-  $('statHigh').textContent = `${Math.round(stats.maxEle)} m`;
-  $('trailStats').style.display = 'flex';
-
-  // status bar
-  $('status').textContent =
-    `// ${trail.name} · ${stats.totalDist.toFixed(1)} km · +${Math.round(stats.gain)} m`;
-
-  drawChart();
 }
 
 // ── Elevation chart ───────────────────────────────────────────────────────────
-function drawChart() {
+function drawChart(elevData) {
   if (elevChart) elevChart.destroy();
 
   const theme  = dark() ? 'dark' : 'light';
@@ -158,7 +161,7 @@ function drawChart() {
     },
   };
 
-  const ctx = document.getElementById('elevationChart').getContext('2d');
+  const ctx = $('elevationChart').getContext('2d');
   elevChart = new Chart(ctx, {
     type: 'line',
     plugins: [mapHoverPlugin],
@@ -189,19 +192,19 @@ function drawChart() {
           bodyColor:       muted,
           borderColor:     subtle,
           borderWidth:     1,
-          titleFont:       { family: mono, size: 10 },
-          bodyFont:        { family: mono, size: 10 },
+          titleFont:  { family: mono, size: 10 },
+          bodyFont:   { family: mono, size: 10 },
         },
       },
       scales: {
         x: {
-          ticks: { color: muted, maxTicksLimit: 6, font: { family: mono, size: 9 } },
-          grid:  { color: subtle },
+          ticks:  { color: muted, maxTicksLimit: 6, font: { family: mono, size: 9 } },
+          grid:   { color: subtle },
           border: { display: false },
         },
         y: {
-          ticks: { color: muted, maxTicksLimit: 4, font: { family: mono, size: 9 } },
-          grid:  { color: subtle },
+          ticks:  { color: muted, maxTicksLimit: 4, font: { family: mono, size: 9 } },
+          grid:   { color: subtle },
           border: { display: false },
         },
       },
@@ -209,33 +212,93 @@ function drawChart() {
   });
 }
 
+// ── Logbook list ──────────────────────────────────────────────────────────────
+function renderLogbook() {
+  const list = $('logbook');
+  list.innerHTML = trails.map((t, i) => {
+    const s = t.stats;
+    const dur = s.duration ? fmtDuration(s.duration) : '—';
+    return `
+    <div class="log-entry${i === activeIdx ? ' active' : ''}" onclick="selectTrail(${i})">
+      <div class="log-meta">${t.date}${t.location ? ' &nbsp;·&nbsp; ' + t.location : ''}</div>
+      <div class="log-title">${t.name}</div>
+      <div class="log-stats">
+        <span>${fmtDist(s.dist)}</span>
+        <span>${fmtGain(s.gain)}</span>
+        <span>↑ ${fmtEle(s.maxEle)}</span>
+        <span>${dur}</span>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ── Select a trail ────────────────────────────────────────────────────────────
+function selectTrail(idx) {
+  activeIdx = idx;
+
+  // highlight active entry
+  document.querySelectorAll('.log-entry').forEach((el, i) =>
+    el.classList.toggle('active', i === idx));
+
+  const trail = trails[idx];
+  const s = trail.stats;
+
+  // show detail panel
+  $('trailDetail').style.display = 'block';
+
+  showTrailOnMap(trail);
+
+  // stats bar
+  $('statDist').textContent = fmtDist(s.dist);
+  $('statGain').textContent = fmtGain(s.gain);
+  $('statLoss').textContent = '−' + Math.round(s.loss) + ' m';
+  $('statHigh').textContent = fmtEle(s.maxEle);
+  $('trailStats').style.display = 'flex';
+
+  // status bar
+  $('status').textContent =
+    `// ${trail.name} · ${fmtDist(s.dist)} · ${fmtGain(s.gain)}`;
+
+  drawChart(trail.elevData);
+
+  // scroll map into view on mobile
+  if (window.innerWidth <= 520) {
+    $('trailDetail').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+window.selectTrail = selectTrail;
+
 // ── Boot ──────────────────────────────────────────────────────────────────────
 (async function init() {
+  let index = [];
   try {
     const resp = await fetch('gpx/index.json');
-    trails = resp.ok ? await resp.json() : [];
-  } catch (_) { trails = []; }
+    index = resp.ok ? await resp.json() : [];
+  } catch (_) { index = []; }
 
-  if (!trails.length) {
-    document.getElementById('map').style.display          = 'none';
-    document.getElementById('elevationWrap').style.display = 'none';
-    document.getElementById('trailList').innerHTML =
-      '<p class="trail-empty">// no trails yet — add .gpx files to gpx/ and run node build.js</p>';
+  if (!index.length) {
+    $('logbook').innerHTML =
+      '<p class="trail-empty">// no trails yet — add .gpx files to gpx/ and update gpx/index.json</p>';
+    $('trailDetail').style.display = 'none';
+    $('status').textContent = '// trails — 0 entries';
     return;
   }
 
-  initMap();
+  // Parse all GPX files in parallel
+  const parsed = await Promise.all(
+    index.map(t => parseGpx(t.file).catch(() => null))
+  );
 
-  // pill list (only shown for 2+ trails)
-  if (trails.length > 1) {
-    const list = document.getElementById('trailList');
-    list.innerHTML = trails.map((t, i) =>
-      `<a href="#" class="trail-pill${i === 0 ? ' active' : ''}"
-          onclick="loadTrail(${i}); return false;">${t.name}</a>`
-    ).join('');
-    list.style.display = 'flex';
-    window.loadTrail = loadTrail;
-  }
+  trails = index.map((t, i) => ({
+    ...t,
+    ...(parsed[i] || { elevData: [], stats: { dist: 0, gain: 0, loss: 0, maxEle: 0, duration: null } }),
+  }));
 
-  loadTrail(0);
+  $('status').textContent = `// trails — ${trails.length} entr${trails.length === 1 ? 'y' : 'ies'}`;
+
+  renderLogbook();
+
+  // Show first trail by default
+  selectTrail(0);
 })();

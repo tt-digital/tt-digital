@@ -362,7 +362,63 @@ footer {
   border-color: var(--nav-link-active);
 }
 
-/* ── Trails ── */
+/* ── Trail logbook ── */
+.logbook {
+  margin-top: 0;
+}
+
+.log-entry {
+  padding: 1.6rem 0;
+  border-bottom: 1px solid var(--border-lo);
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.log-entry:first-child {
+  border-top: 1px solid var(--border-lo);
+  margin-top: 1.5rem;
+}
+
+.log-meta {
+  color: var(--meta-text);
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.4rem;
+  transition: color 0.3s ease;
+}
+
+.log-title {
+  font-size: 1.0rem;
+  font-weight: 400;
+  color: var(--post-title);
+  margin-bottom: 0.6rem;
+  line-height: 1.4;
+  transition: color 0.15s;
+}
+
+.log-entry:hover .log-title,
+.log-entry.active .log-title {
+  color: var(--post-title-hover);
+}
+
+.log-stats {
+  display: flex;
+  gap: 1.4rem;
+  color: var(--excerpt-text);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  transition: color 0.3s ease;
+}
+
+.log-entry.active .log-stats {
+  color: var(--nav-link-active);
+}
+
+.trail-detail {
+  margin-top: 1.5rem;
+}
+
+/* ── Trails map / chart ── */
 #map {
   width: 100%;
   height: 340px;

@@ -205,14 +205,32 @@ const GPX_DIR      = path.join(__dirname, 'gpx');
 const GPX_OUT_FILE = path.join(GPX_DIR, 'index.json');
 
 if (fs.existsSync(GPX_DIR)) {
+  // Read existing index to preserve manually-set name/location/date fields
+  let existing = [];
+  if (fs.existsSync(GPX_OUT_FILE)) {
+    try { existing = JSON.parse(fs.readFileSync(GPX_OUT_FILE, 'utf8')); } catch (_) {}
+  }
+  const existingByFile = Object.fromEntries(existing.map(t => [t.file, t]));
+
   const gpxFiles = fs.readdirSync(GPX_DIR)
     .filter(f => f.endsWith('.gpx'))
-    .sort();
+    .sort()
+    .reverse(); // newest first
 
-  const trails = gpxFiles.map(f => ({
-    name: f.replace(/\.gpx$/, '').replace(/-/g, ' '),
-    file: `gpx/${f}`,
-  }));
+  const trails = gpxFiles.map(f => {
+    const fileKey = `gpx/${f}`;
+    const prev    = existingByFile[fileKey] || {};
+    // Derive date and slug from YYYY-MM-DD-slug.gpx filename if present
+    const dateMatch = f.match(/^(\d{4}-\d{2}-\d{2})-(.+)\.gpx$/);
+    const date      = prev.date || (dateMatch ? dateMatch[1] : '');
+    const slug      = dateMatch ? dateMatch[2].replace(/-/g, ' ') : f.replace(/\.gpx$/, '');
+    return {
+      name:     prev.name     || slug,
+      date,
+      location: prev.location || '',
+      file:     fileKey,
+    };
+  });
 
   fs.writeFileSync(GPX_OUT_FILE, JSON.stringify(trails, null, 2) + '\n');
   console.log(`indexed ${trails.length} trail${trails.length === 1 ? '' : 's'} → gpx/index.json`);
