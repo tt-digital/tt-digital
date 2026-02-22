@@ -119,6 +119,46 @@ nav a.active { color: var(--nav-link-active); }
   cursor: pointer;
 }
 
+/* ── Categories dropdown ── */
+.nav-dropdown {
+  position: relative;
+  display: inline-block;
+  margin-left: 1.5rem;
+  vertical-align: baseline;
+}
+
+.nav-dropdown > a {
+  margin-left: 0;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 0.6rem);
+  right: 0;
+  background: var(--bg);
+  border: 1px solid var(--border-hi);
+  min-width: 7rem;
+  padding: 0.35rem 0;
+  z-index: 100;
+  transition: border-color 0.3s ease;
+}
+
+.dropdown-menu.open { display: block; }
+
+.dropdown-menu a {
+  display: block;
+  padding: 0.25rem 0.8rem;
+  margin-left: 0;
+  color: var(--nav-link);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.dropdown-menu a:hover { color: var(--nav-link-hover); }
+.dropdown-menu a.active { color: var(--nav-link-active); }
+
 /* ── Status ── */
 .status {
   padding: 0.6rem 0;

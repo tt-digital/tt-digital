@@ -15,6 +15,10 @@
   <a class="logo" href="index.html">tt-digital</a>
   <nav>
     <a href="index.html" class="active">posts</a>
+    <div class="nav-dropdown">
+      <a href="#" id="categoriesBtn" onclick="toggleDropdown(); return false;">categories</a>
+      <div class="dropdown-menu" id="dropdownMenu"></div>
+    </div>
     <a href="about.html">about</a>
     <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()"></button>
   </nav>
