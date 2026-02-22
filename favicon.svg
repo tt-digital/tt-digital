@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    rect { fill: #111; }
+    text { fill: #ccc; }
+    @media (prefers-color-scheme: light) {
+      rect { fill: #efefef; }
+      text { fill: #222; }
+    }
+  </style>
+  <rect width="32" height="32" rx="3"/>
+  <text x="16" y="22"
+        font-family="ui-monospace, 'Courier New', monospace"
+        font-size="13"
+        font-weight="400"
+        text-anchor="middle"
+        letter-spacing="1">tt</text>
+</svg>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>tt-digital — about</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/theme.js"></script>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="index.html">tt-digital</a>
+  <nav>
+    <a href="index.html">posts</a>
+    <a href="about.html" class="active">about</a>
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()"></button>
+  </nav>
+</header>
+
+<div class="status">// hypertext markup language</div>
+
+<main class="page-content">
+  <h1>About</h1>
+
+  <p>HTML — HyperText Markup Language — is the foundational language of the web. Every page you've ever visited is built on it. It describes the structure and meaning of content through a system of elements and attributes.</p>
+
+  <p>It was created by Tim Berners-Lee in 1991 as a way to share documents across the early internet. What started as a handful of tags has grown into a mature specification maintained by the WHATWG and W3C.</p>
+
+  <h2>How it works</h2>
+
+  <p>HTML documents are plain text files. A browser reads the file, parses the tags, and renders a visual page. Tags wrap content to give it meaning — a <code>&lt;p&gt;</code> is a paragraph, an <code>&lt;h1&gt;</code> is a top-level heading, an <code>&lt;a&gt;</code> is a link.</p>
+
+  <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;My Page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello, world.&lt;/h1&gt;
+    &lt;p&gt;This is a paragraph.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+  <p>The <code>&lt;head&gt;</code> contains metadata — invisible to the user but important for the browser and search engines. The <code>&lt;body&gt;</code> holds everything that appears on screen.</p>
+
+  <h2>Semantic markup</h2>
+
+  <p>Modern HTML emphasizes semantics — using the right element for the right purpose. A <code>&lt;nav&gt;</code> marks navigation, an <code>&lt;article&gt;</code> marks self-contained content, a <code>&lt;footer&gt;</code> marks the bottom of a page or section. This matters for accessibility, SEO, and maintainability.</p>
+
+  <blockquote>Structure should reflect meaning, not appearance. Style is CSS's job.</blockquote>
+
+  <p>Some commonly used semantic elements:</p>
+
+  <p>
+    <span class="tag-ref">&lt;header&gt;</span>
+    <span class="tag-ref">&lt;nav&gt;</span>
+    <span class="tag-ref">&lt;main&gt;</span>
+    <span class="tag-ref">&lt;article&gt;</span>
+    <span class="tag-ref">&lt;section&gt;</span>
+    <span class="tag-ref">&lt;aside&gt;</span>
+    <span class="tag-ref">&lt;footer&gt;</span>
+    <span class="tag-ref">&lt;figure&gt;</span>
+    <span class="tag-ref">&lt;time&gt;</span>
+    <span class="tag-ref">&lt;mark&gt;</span>
+  </p>
+
+  <h2>Attributes</h2>
+
+  <p>Attributes provide additional information about elements. They sit inside the opening tag as key-value pairs.</p>
+
+  <pre><code>&lt;a href="https://example.com" target="_blank" rel="noopener"&gt;
+  visit example
+&lt;/a&gt;
+
+&lt;img src="photo.jpg" alt="a description of the image" width="800"&gt;
+
+&lt;input type="email" placeholder="your@email.com" required&gt;</code></pre>
+
+  <p>The <code>alt</code> attribute on images, for instance, isn't optional in practice — it's what screen readers announce to blind users, and what displays if the image fails to load.</p>
+
+  <h2>HTML today</h2>
+
+  <p>The current version is HTML Living Standard — a continuously updated spec rather than a versioned release. It introduced structural elements, native <code>&lt;video&gt;</code> and <code>&lt;audio&gt;</code>, the <code>&lt;canvas&gt;</code> drawing API, form validation, and much more.</p>
+
+  <p>HTML is intentionally simple. It doesn't have logic or loops — that's JavaScript's job. It doesn't control appearance — that's CSS. What it does, it does well: describe content, establish structure, connect documents through links.</p>
+
+  <blockquote>The web is built on a language anyone can read, write, and view source on. That openness was intentional — and it still matters.</blockquote>
+</main>
+
+<footer>
+  <span>tt-digital v1.0</span>
+  <span>about</span>
+</footer>
+
+</body>
+</html>

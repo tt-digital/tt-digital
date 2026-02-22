@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>tt-digital</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/theme.js"></script>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="index.html">tt-digital</a>
+  <nav>
+    <a href="index.html" class="active">posts</a>
+    <a href="about.html">about</a>
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()"></button>
+  </nav>
+</header>
+
+<div class="status" id="status">// ready</div>
+
+<main>
+  <section class="post-list" id="postList"></section>
+
+  <article class="single-post" id="singlePost">
+    <button class="back-btn" onclick="showList()">back</button>
+    <div class="meta" id="singleMeta"></div>
+    <h1 id="singleTitle"></h1>
+    <div class="post-body" id="singleBody"></div>
+  </article>
+</main>
+
+<footer>
+  <span>tt-digital v1.0</span>
+  <span id="footerCount"></span>
+</footer>
+
+<script src="js/posts.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>
