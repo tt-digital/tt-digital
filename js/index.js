@@ -8,7 +8,8 @@ window.setFilter = function (tag) {
 };
 
 function renderList() {
-  const filtered = activeTag ? posts.filter(p => p.tag === activeTag) : posts;
+  const filtered = (activeTag ? posts.filter(p => p.tag === activeTag) : posts)
+    .slice().sort((a, b) => b.date.localeCompare(a.date));
   document.getElementById('postList').innerHTML = filtered.map((p) => `
     <div class="post-item">
       <div class="meta">${p.date} &nbsp;·&nbsp; ${p.tag}</div>
