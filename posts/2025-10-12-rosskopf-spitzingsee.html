@@ -6,6 +6,7 @@
 <title>Rosskopf via Spitzingsee — tt-digital</title>
 <meta name="description" content="October in the Bavarian Alps — frost on the higher trail before noon, five hundred metres of gain, and the specific quality of light that only comes in autumn.">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="stylesheet" href="../css/style.css">
 <script src="../js/theme.js"></script>
@@ -16,7 +17,6 @@
   <a class="logo" href="../index.html">tt-digital</a>
   <nav>
     <a href="../index.html">posts</a>
-    <a href="../trails.html">trails</a>
     <div class="nav-dropdown">
       <a href="#" id="categoriesBtn" onclick="toggleDropdown(); return false;">categories</a>
       <div class="dropdown-menu" id="dropdownMenu"></div>
@@ -32,6 +32,7 @@
   <article class="single-post">
     <a class="back-btn" href="../index.html">back</a>
     <h1>Rosskopf via Spitzingsee</h1>
+    <div class="trail-embed" data-gpx="../gpx/2025-10-12-rosskopf-spitzingsee.gpx"></div>
     <div class="post-body"><p>October in the Bavarian Alps means something specific: the tourists are mostly gone, the days have that clean northern light, and there is frost on the higher trails before noon if you started early enough. Which we had.</p>
 <p>The route from Spitzingsee gains five hundred metres before the ridge, then follows it east in full exposure. The kind of walk where the wind decides the mood.</p>
 <blockquote>At altitude in October you are not in summer anymore. You are in something else — closer to winter, closer to what the mountains are most of the year.</blockquote>
@@ -46,7 +47,10 @@
   <span></span>
 </footer>
 
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.6/dist/chart.umd.min.js"></script>
 <script src="../js/posts.js"></script>
 <script src="../js/nav.js"></script>
+<script src="../js/trail-embed.js"></script>
 </body>
 </html>

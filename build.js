@@ -115,6 +115,16 @@ function dateFromFilename(f) {
 
 // ── Post HTML template ────────────────────────────────────────────────────────
 function renderPostHtml(post) {
+  const hasGpx   = !!post.gpx;
+  const leaflet  = hasGpx
+    ? `<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">\n` : '';
+  const embedDiv = hasGpx
+    ? `    <div class="trail-embed" data-gpx="../${post.gpx}"></div>\n    ` : '';
+  const trailScripts = hasGpx ? `
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.6/dist/chart.umd.min.js"></script>
+<script src="../js/trail-embed.js"></script>` : '';
+
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -123,7 +133,7 @@ function renderPostHtml(post) {
 <title>${post.title} — tt-digital</title>
 <meta name="description" content="${post.excerpt}">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
-<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+${leaflet}<link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="stylesheet" href="../css/style.css">
 <script src="../js/theme.js"></script>
 </head>
@@ -133,7 +143,6 @@ function renderPostHtml(post) {
   <a class="logo" href="../index.html">tt-digital</a>
   <nav>
     <a href="../index.html">posts</a>
-    <a href="../trails.html">trails</a>
     <div class="nav-dropdown">
       <a href="#" id="categoriesBtn" onclick="toggleDropdown(); return false;">categories</a>
       <div class="dropdown-menu" id="dropdownMenu"></div>
@@ -149,7 +158,7 @@ function renderPostHtml(post) {
   <article class="single-post">
     <a class="back-btn" href="../index.html">back</a>
     <h1>${post.title}</h1>
-    <div class="post-body">${post.body}</div>
+    ${embedDiv}<div class="post-body">${post.body}</div>
   </article>
 </main>
 
@@ -159,10 +168,11 @@ function renderPostHtml(post) {
 </footer>
 
 <script src="../js/posts.js"></script>
-<script src="../js/nav.js"></script>
+<script src="../js/nav.js"></script>${trailScripts}
 </body>
 </html>
 `;
+}
 }
 
 // ── Main ──────────────────────────────────────────────────────────────────────
@@ -190,6 +200,7 @@ const posts = files.map((filename, i) => {
     excerpt: meta.excerpt || '',
     body:    parseMarkdown(body),
     url:     `posts/${htmlFilename}`,
+    ...(meta.gpx ? { gpx: meta.gpx } : {}),
   };
 
   fs.writeFileSync(path.join(POSTS_DIR, htmlFilename), renderPostHtml(post));
@@ -199,39 +210,3 @@ const posts = files.map((filename, i) => {
 
 fs.writeFileSync(OUT_FILE, `const posts = ${JSON.stringify(posts, null, 2)};\n`);
 console.log(`built ${posts.length} post${posts.length === 1 ? '' : 's'} → js/posts.js`);
-
-// ── GPX index ─────────────────────────────────────────────────────────────────
-const GPX_DIR      = path.join(__dirname, 'gpx');
-const GPX_OUT_FILE = path.join(GPX_DIR, 'index.json');
-
-if (fs.existsSync(GPX_DIR)) {
-  // Read existing index to preserve manually-set name/location/date fields
-  let existing = [];
-  if (fs.existsSync(GPX_OUT_FILE)) {
-    try { existing = JSON.parse(fs.readFileSync(GPX_OUT_FILE, 'utf8')); } catch (_) {}
-  }
-  const existingByFile = Object.fromEntries(existing.map(t => [t.file, t]));
-
-  const gpxFiles = fs.readdirSync(GPX_DIR)
-    .filter(f => f.endsWith('.gpx'))
-    .sort()
-    .reverse(); // newest first
-
-  const trails = gpxFiles.map(f => {
-    const fileKey = `gpx/${f}`;
-    const prev    = existingByFile[fileKey] || {};
-    // Derive date and slug from YYYY-MM-DD-slug.gpx filename if present
-    const dateMatch = f.match(/^(\d{4}-\d{2}-\d{2})-(.+)\.gpx$/);
-    const date      = prev.date || (dateMatch ? dateMatch[1] : '');
-    const slug      = dateMatch ? dateMatch[2].replace(/-/g, ' ') : f.replace(/\.gpx$/, '');
-    return {
-      name:     prev.name     || slug,
-      date,
-      location: prev.location || '',
-      file:     fileKey,
-    };
-  });
-
-  fs.writeFileSync(GPX_OUT_FILE, JSON.stringify(trails, null, 2) + '\n');
-  console.log(`indexed ${trails.length} trail${trails.length === 1 ? '' : 's'} → gpx/index.json`);
-}

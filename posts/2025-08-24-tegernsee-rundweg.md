@@ -3,6 +3,7 @@ title: Tegernsee Rundweg
 date: 2025-08-24
 tag: trail
 excerpt: A summer loop from the shore into the hills above the lake — and back down before the afternoon heat sets in.
+gpx: gpx/2025-08-24-tegernsee-rundweg.gpx
 ---
 
 The path out of town follows the eastern shore before climbing into the hills. By ten in the morning the trail is quiet — a few older couples with walking poles, a dog pulling its owner uphill. Everyone else is still on the terrace below.

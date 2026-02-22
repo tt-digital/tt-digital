@@ -362,91 +362,15 @@ footer {
   border-color: var(--nav-link-active);
 }
 
-/* ── Trail logbook ── */
-.logbook {
-  margin-top: 0;
+/* ── Trail embed (map + stats + chart inside a post) ── */
+.trail-embed {
+  margin: 1.5rem 0 2rem;
 }
 
-.log-entry {
-  padding: 1.6rem 0;
-  border-bottom: 1px solid var(--border-lo);
-  cursor: pointer;
-  transition: border-color 0.3s ease;
-}
-
-.log-entry:first-child {
-  border-top: 1px solid var(--border-lo);
-  margin-top: 1.5rem;
-}
-
-.log-meta {
-  color: var(--meta-text);
-  font-size: 0.65rem;
-  letter-spacing: 0.06em;
-  margin-bottom: 0.4rem;
-  transition: color 0.3s ease;
-}
-
-.log-title {
-  font-size: 1.0rem;
-  font-weight: 400;
-  color: var(--post-title);
-  margin-bottom: 0.6rem;
-  line-height: 1.4;
-  transition: color 0.15s;
-}
-
-.log-entry:hover .log-title,
-.log-entry.active .log-title {
-  color: var(--post-title-hover);
-}
-
-.log-stats {
-  display: flex;
-  gap: 1.4rem;
-  color: var(--excerpt-text);
-  font-size: 0.72rem;
-  letter-spacing: 0.04em;
-  transition: color 0.3s ease;
-}
-
-.log-entry.active .log-stats {
-  color: var(--nav-link-active);
-}
-
-.trail-detail {
-  margin-top: 1.5rem;
-}
-
-/* ── Trails map / chart ── */
-#map {
+#_tmap {
   width: 100%;
-  height: 340px;
-  margin-top: 2rem;
+  height: 300px;
   border: 1px solid var(--border-hi);
-}
-
-.trail-list {
-  display: none;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  padding: 1.5rem 0 0;
-}
-
-.trail-pill {
-  color: var(--nav-link);
-  font-size: 0.68rem;
-  letter-spacing: 0.08em;
-  text-decoration: none;
-  padding: 0.25rem 0.7rem;
-  border: 1px solid var(--border-hi);
-  transition: color 0.15s, border-color 0.15s;
-}
-
-.trail-pill:hover,
-.trail-pill.active {
-  color: var(--nav-link-active);
-  border-color: var(--nav-link-active);
 }
 
 .trail-stats {
@@ -484,12 +408,6 @@ footer {
   margin-top: 1rem;
 }
 
-.trail-empty {
-  color: var(--meta-text);
-  font-size: 0.72rem;
-  padding: 2rem 0;
-}
-
 /* ── Responsive ── */
 @media (max-width: 520px) {
   body { padding: 0 1.2rem; }
@@ -501,7 +419,7 @@ footer {
 
   .mobile-filter { display: flex; }
 
-  #map { height: 260px; }
+  #_tmap { height: 220px; }
 
   .trail-stats { flex-wrap: wrap; }
   .trail-stat { flex: 1 1 50%; }

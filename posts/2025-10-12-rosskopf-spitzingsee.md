@@ -3,6 +3,7 @@ title: Rosskopf via Spitzingsee
 date: 2025-10-12
 tag: trail
 excerpt: October in the Bavarian Alps — frost on the higher trail before noon, five hundred metres of gain, and the specific quality of light that only comes in autumn.
+gpx: gpx/2025-10-12-rosskopf-spitzingsee.gpx
 ---
 
 October in the Bavarian Alps means something specific: the tourists are mostly gone, the days have that clean northern light, and there is frost on the higher trails before noon if you started early enough. Which we had.
