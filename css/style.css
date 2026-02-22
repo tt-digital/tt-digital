@@ -332,3 +332,44 @@ footer {
   margin-top: 3rem;
   transition: color 0.3s ease, border-color 0.3s ease;
 }
+
+/* ── Mobile filter strip ── */
+.mobile-filter {
+  display: none; /* shown via media query */
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--border-lo);
+  gap: 0.4rem;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.mobile-filter::-webkit-scrollbar { display: none; }
+
+.mobile-filter a {
+  display: inline-block;
+  color: var(--nav-link);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid var(--border-hi);
+  transition: color 0.15s, border-color 0.15s;
+}
+.mobile-filter a:hover,
+.mobile-filter a.active {
+  color: var(--nav-link-active);
+  border-color: var(--nav-link-active);
+}
+
+/* ── Responsive ── */
+@media (max-width: 520px) {
+  body { padding: 0 1.2rem; }
+
+  nav a,
+  .theme-toggle { margin-left: 1rem; }
+
+  .nav-dropdown { display: none; }
+
+  .mobile-filter { display: flex; }
+}

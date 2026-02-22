@@ -9,6 +9,7 @@
     return new URLSearchParams(window.location.search).get('tag') || null;
   }
 
+  // ── Desktop dropdown ─────────────────────────────────────────────────────
   function renderNavDropdown() {
     const activeTag = getActiveTag();
     const btn  = document.getElementById('categoriesBtn');
@@ -20,13 +21,33 @@
     menu.innerHTML = ['all', ...tags].map(t => {
       const isActive = t === 'all' ? !activeTag : t === activeTag;
       const href     = t === 'all' ? `${root}index.html` : `${root}index.html?tag=${t}`;
-      // On index.html setFilter is defined — filter in place without reload.
-      // On other pages it is undefined — the href navigates normally.
       const onclick  = `if(window.setFilter){window.setFilter('${t}');return false;}`;
       return `<a href="${href}" onclick="${onclick}" class="${isActive ? 'active' : ''}">${t}</a>`;
     }).join('');
   }
 
+  // ── Mobile filter strip (injected after .status) ─────────────────────────
+  function renderMobileFilter() {
+    const activeTag = getActiveTag();
+
+    let strip = document.getElementById('mobileFilter');
+    if (!strip) {
+      strip = document.createElement('div');
+      strip.id = 'mobileFilter';
+      strip.className = 'mobile-filter';
+      const status = document.querySelector('.status');
+      if (status) status.insertAdjacentElement('afterend', strip);
+    }
+
+    strip.innerHTML = ['all', ...tags].map(t => {
+      const isActive = t === 'all' ? !activeTag : t === activeTag;
+      const href     = t === 'all' ? `${root}index.html` : `${root}index.html?tag=${t}`;
+      const onclick  = `if(window.setFilter){window.setFilter('${t}');return false;}`;
+      return `<a href="${href}" onclick="${onclick}" class="${isActive ? 'active' : ''}">${t}</a>`;
+    }).join('');
+  }
+
+  // ── Shared helpers ────────────────────────────────────────────────────────
   window.toggleDropdown = function () {
     document.getElementById('dropdownMenu').classList.toggle('open');
   };
@@ -37,8 +58,13 @@
     }
   });
 
-  renderNavDropdown();
+  function renderAll() {
+    renderNavDropdown();
+    renderMobileFilter();
+  }
 
-  // Allow index.js to re-render after a filter change
-  window.renderNavDropdown = renderNavDropdown;
+  renderAll();
+
+  // index.js calls this after setFilter to sync both UIs
+  window.renderNavDropdown = renderAll;
 })();
