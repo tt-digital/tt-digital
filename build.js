@@ -173,7 +173,6 @@ ${leaflet}<link rel="icon" type="image/svg+xml" href="../favicon.svg">
 </html>
 `;
 }
-}
 
 // ── Main ──────────────────────────────────────────────────────────────────────
 const files = fs.readdirSync(POSTS_DIR)

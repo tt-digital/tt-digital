@@ -1,6 +1,26 @@
 const posts = [
   {
     "id": 1,
+    "slug": "irans-likeliest-near-future",
+    "date": "2026-03-01",
+    "tag": "essay",
+    "title": "Iran's Likeliest Near Future",
+    "excerpt": "Iran's Islamic Republic may endure, but in a very different form.",
+    "body": "<p><em>By Arash Azizi · The Atlantic</em></p>\n<p>Ayatollah Ali Khamenei is dead, and the regime he ran will very likely transform. But no one should imagine that its nature or future will come down to a single person.</p>\n<p>The country's 13-man National Security Council essentially sidelined Khamenei after the 12-day war in June. It has effectively run the country since the summer and will likely continue to do so, even after a new supreme leader is appointed.</p>\n<p>At the moment, a temporary three-person leadership committee has officially taken charge, but real power continues to rest with the security council, which is dominated by military and political insiders. Among them are the council's powerful convener, Ali Larijani, and the current speaker of Parliament, Mohammad Baqer Qalibaf, a wily former air-force general popular with the Islamic Revolutionary Guard Corps.</p>\n<p>The first task of the country's rulers, whether through the three-man leadership committee or the security council, will be to manage the current war with the United States and Israel. They will face relentless pressure to abandon Iran's decades-long hostility and find a different path forward. Iran's two major adversaries have thoroughly humiliated it; the regime was not able to hide its reclusive leader for even a few hours.</p>\n<p>Mostly to save face, Iran's new leaders will likely continue to hit at American and Israeli targets in the region for a little while. But in time, those in charge will probably be willing to strike a new bargain if it extends the regime's lease on life. Donald Trump and Benjamin Netanyahu might be receptive to such a deal as an alternative to open-ended conflict.</p>\n<blockquote>\"This atmosphere, and loud speeches by Iran's leaders against America, will change in a matter of months. The Islamic Republic has no way but to end the conflict with the U.S. and focus on economic development. Our resources are done. That's the only way forward.\"</blockquote>\n<p>That's a source close to Qalibaf, speaking on the condition of anonymity because of the sensitivity of wartime conditions. He envisaged that Iran would establish diplomatic ties with the United States and take a position on Israel similar to that of Saudi Arabia and the other Gulf states. This would mean giving up Khamenei's quixotic quest to destroy Israel and instead conditioning recognition on a diplomatic solution to the conflict with the Palestinians. The source also pictured the relaxation of socially repressive domestic laws, such as the mandatory hijab, and perhaps even a slight political opening.</p>\n<h2>An Unpromising Leadership Committee</h2>\n<p>If the future of the country depends on a new clerical leader, however, the composition of the three-man interim leadership committee doesn't inspire much hope. It includes President Masoud Pezeshkian, who is a reformist, but also Gholam-Hossein Mohseni-Ejei, an ultra-hard-line former minister of intelligence and the current head of the country's brutal judiciary. The third member is Alireza Arafi, a hard-line cleric who serves on the Guardian Council and has long been seen as a continuity candidate to succeed Khamenei. The Assembly of Experts, the body tasked with the job of selecting the new supreme leader, could anoint one of the two clerics on the three-man committee. Or it could pick somebody else.</p>\n<p>There are many reasons to believe, however, that the succession to Khamenei will not be the decisive factor in determining Iran's course, and that the country will take the path described by my source, regardless of the clerical leadership. Arafi has spent most of his life in the seminary and will be no match for the military power players in the regime. Ejei is a murderous extremist, but he has also historically been open to wheeling and dealing with the likes of Qalibaf. The Guards, and other parastatal institutions, control not just the guns but most of the Iranian economy.</p>\n<p>Larijani and Qalibaf have made plenty of harsh statements of their own about Israel and America, but they both incline toward pragmatism. They know full well how little ammunition — real and metaphorical — Iran has for fighting a prolonged war. Larijani is also close with former president Hassan Rouhani, who can be brought in from the cold as the doyen of the regime's West-facing faction. If men like these call the shots, the regime's policies will be transformed, however cynically. The 1979 revolution will have finally reached its thermidor and abandoned its founding zealotry.</p>\n<h2>What Democrats Want</h2>\n<p>Such an outcome would fall far short of what so many Iranians, myself included, have fought for — what thousands have only recently died for. It would not bring Iran democracy. It would not vindicate the brave civil-society leaders who fill Iran's prisons on spurious convictions because they demanded an end to the Islamic Republic's authoritarian rule. These figures and many others call for elections for a fresh constituent assembly that could draw up a new social contract for Iran.</p>\n<p>Yesterday, in an effort to galvanize democratic forces, oppositionists announced the foundation of the Strategic Council of Republicans Inside Iran. The group's name emphasizes what it is, but also what it is not: That it is \"republican\" means it is not monarchist, and is therefore distinct from the movement behind former Crown Prince Reza Pahlavi. That it is \"inside Iran\" sets it apart from the activist diaspora. The council is formed of 70 political figures inside the country whose names have not been declared publicly but have been sent to the U.S. and European governments.</p>\n<p>The success of this group is to be fervently desired, but for now it remains unlikely. Even if American and Israeli airstrikes eliminate yet more of Iran's top leaders, the country's democrats will have a hard time taking power, because they lack organized networks. This doesn't mean that they — we — should give up. Only that we should get organized. Iranians have striven for democracy at least since 1906, when the Constitutional Revolution led to the establishment of our Parliament. That fight shouldn't stop now, just as one of its greatest adversaries has been removed from the scene.</p>\n<p>Even in the not-quite-best-case scenario, Khamenei's demise will likely allow Iran to abandon some of his most destructive core policies in the short-to-medium term — not least, his insistence on sacrificing Iran on the altar of a failed ideology. To that extent, even if the Islamic Republic lives on a little longer, Khameneism will be buried alongside Khamenei. That's almost enough to make me hopeful for the future of Iran.</p>\n<p>---</p>\n<p><em>Arash Azizi is a contributing writer at The Atlantic. His book, What Iranians Want: Women, Life, Freedom, was published in January 2024.</em></p>",
+    "url": "posts/2026-03-01-irans-likeliest-near-future.html"
+  },
+  {
+    "id": 2,
+    "slug": "where-does-the-iran-war-go-from-here",
+    "date": "2026-02-28",
+    "tag": "essay",
+    "title": "Where Does the Iran War Go From Here?",
+    "excerpt": "Killing the supreme leader was one thing. Ousting the regime will be another.",
+    "body": "<p><em>By Shane Harris, Isaac Stanley-Becker, Nancy A. Youssef, Ashley Parker, Jonathan Lemire, and Michael Scherer · The Atlantic</em></p>\n<p>In the final hours before U.S. warplanes bombarded Iran today, President Trump wanted to go over the plan one last time. He called the top U.S. military commander in the Middle East to confirm the details of the operation, asking about how the regime in Iran was likely to retaliate and how many American casualties he could expect, according to two U.S. officials who were briefed on Trump's call with Admiral Brad Cooper, the head of U.S. Central Command. Trump had sent the largest number of forces to the region since George W. Bush ordered the invasion of Iraq, in 2003.</p>\n<p>The president hoped that the air campaign, conducted with Israel, would weaken the regime in Tehran and that the Iranian people would rise up and \"take over your government,\" as he said in a video address on Truth Social in the early hours of this morning. \"This will be probably your only chance for generations,\" he added.</p>\n<p>By the day's end in the Middle East, U.S. officials had concluded that the attacks had accomplished something historic, nearly five decades into the reign of the Islamic Republic's ayatollahs: They had killed Iran's supreme leader, Ali Khamenei. Khamenei's compound had been a principal target of the attacks, and satellite images showed that little of it was left standing.</p>\n<p>The attacks followed months of deliberation but little attempt by the administration to sell the American public on the logic for striking Iran. Despite skepticism from some of his closest aides and advisers, Trump was convinced that now was a rare and fleeting moment for regime change. Getting rid of the government that came to power in the 1979 Iranian Revolution is something that Trump — and many others — would consider a crowning legacy achievement, one that had eluded his predecessors. Announcing Khamenei's death, Trump called him \"one of the most evil people in History.\"</p>\n<p>But even with the supreme leader gone, true regime change has not been accomplished. Trump's call with Cooper was a reminder of the high stakes and competing pressures that shaped the president's decision to launch the war, which is premised on what Iran experts say is an optimistic assessment of the likelihood that the Islamic Republic itself can be brought to an end.</p>\n<h2>Reservations Inside the Administration</h2>\n<p>In the days leading up to the attacks, some of Trump's most senior advisers, including Vice President Vance, Chairman of the Joint Chiefs of Staff General Dan Caine, and the senior Pentagon official Elbridge Colby, expressed reservations about the operation. Caine in particular was unsure as to whether air strikes alone would be enough to undermine the regime, and he privately warned about how complicated any move against Iran would be, according to two U.S. officials who were among those who spoke with us, on the condition of anonymity, about Trump's decision making and the debates within the administration.</p>\n<p>Trump's chief of staff, Susie Wiles, the architect of his political comeback in 2024, did not offer a personal position on the wisdom of the strikes, according to a person familiar with the conversations. But in an effort to make sure the president was fully informed, she did present him with concerns about the unpredictable consequences of an attack. She also organized a conversation about the importance of following through on the promises he'd made during his presidential campaign about avoiding new foreign wars. Republican midterm strategists, many of whom gathered in Florida for meetings this weekend, have grown anxious about Trump's foreign military adventures turning off voters who want their leaders to focus on the economy.</p>\n<p>A visit by the Omani foreign minister with Vance yesterday was a last-ditch effort to avert strikes and give more time for negotiations between Iran and the United States, which Oman has mediated, officials told us. This week's talks in Geneva had seen progress, but the U.S. side regarded them as relatively superficial because Iran was unwilling to agree to the Trump administration's demands, which included destruction of Iran's primary nuclear sites, delivery of all enriched uranium to the United States, and no sunset clauses for the agreement, among other provisions.</p>\n<p>Trump's lead negotiator, Special Envoy Steve Witkoff, believed that further talks would be futile because the two sides couldn't agree on a basic framework for discussions, one U.S. official told us. The Omani foreign minister later said publicly that he was \"dismayed\" that the Americans had not allowed more time for negotiations.</p>\n<h2>Iran Fires Back</h2>\n<p>One question looming over the attacks was whether regional U.S. allies, including Israel and the Gulf states, could withstand a retaliatory barrage of Iranian missiles before a potential civilian uprising in Iran takes place. Iran fired back at targets across the region today, but many of its missiles appear to have been intercepted and caused limited damage. One person in the United Arab Emirates was reportedly killed.</p>\n<p>The prospects for a popular revolt in Iran seem dim, at least in the short term. Former U.S. officials told us that there is no obvious element within the Iranian regime that could take power and steer Iran toward a more U.S.-friendly approach, as occurred in Venezuela last month. The Iranian people are unarmed, so it's not clear how they would mount a credible opposition to the security forces that recently killed as many as 30,000 civilians, according to some estimates, after protests erupted in late December. The Islamic Revolutionary Guard Corps, one of Iran's main power centers, has a decentralized hierarchy and is trained to maintain control in the face of strikes.</p>\n<p>But Trump was convinced that the odds of a successful popular revolt were not going to get better over time and that this was the best moment to strike. Israeli Prime Minister Benjamin Netanyahu urged him to act. Netanyahu, like Trump advisers including Senator Lindsey Graham, believed that if Khamenei and Iran's president were killed, some of the people lower down in the IRGC who are \"mid-market businessmen\" rather than zealots could be persuaded to work with the Americans, one U.S. official told us.</p>\n<p>History suggests that, in Iran's case, that is probably an overly rosy prediction. But Trump was not deterred. The president's past success with a limited strike on Iran's nuclear facilities over the summer, as well as last month's operation that removed Nicolás Maduro from power in Venezuela, may have convinced Trump that the U.S. military is \"an almost biblical force that can accomplish anything,\" one Trump adviser told us.</p>\n<p>The operation in Iran is far bigger and more complicated than anything the president has attempted thus far in his two terms in office. The repercussions are just beginning. \"I worry that the lesson he's taken is he can do this, and that the blowback won't be that bad,\" Jonathan Panikoff, a former U.S. intelligence official and a Middle East expert, told us.</p>\n<h2>A Legacy Gamble</h2>\n<p>Trump has long derided George W. Bush for, as Trump sees it, throwing away his presidency on a yearslong war in Iraq, which was premised on eliminating weapons of mass destruction that the country didn't actually possess. Now Trump's own legacy may be determined by his attempt to overthrow a more powerful Middle Eastern regime and stop it from building a nuclear weapon.</p>\n<p>This is not the project Trump told his voters they were signing up for. \"There's a lot of concern about the impact on the political landscape for the midterms,\" one former administration official told us. Like some of Trump's other allies, the former official was perplexed as to why the president hadn't taken the opportunity in his State of the Union address on Tuesday to tell the American people why war in Iran is in the nation's interest and likely to succeed. Iran received only a relatively brief mention in the lengthy speech. \"Why not use the State of the Union platform to try to make the real case?\" the former official asked. Instead, he said, Trump spent nearly two hours on \"the bread-and-butter stuff\" that might influence voters in the midterms: \"And then, days later, it's this — it just feels off.\"</p>\n<p>Even as Trump was speaking to the nation, he'd apparently already made up his mind. He didn't believe that Tehran would make \"meaningful long-term progress, and the potential for them to have nuclear capacities is too much of a wild card,\" the former official said, echoing the assessment of Trump officials involved in the negotiations.</p>\n<p>But Trump never made a public case, as Bush did with Iraq, for why negotiating with Iran wasn't going to yield results. Yesterday afternoon, hours before the first American bombs fell, the Omani foreign minister, Badr Albusaidi, said that the U.S. and Iran were close to the \"heart\" of an agreement on Iran's nuclear ambitions. Albusaidi told Margaret Brennan, the host of CBS News's Face the Nation, that \"if the ultimate objective is to ensure forever that Iran cannot have a nuclear bomb, I think we have cracked that problem through these negotiations by agreeing a very important breakthrough that has never been achieved any time before.\"</p>\n<h2>The 'Maximalist' Strike Plan</h2>\n<p>For years, the U.S. military rehearsed the strike plan carried out today, former defense officials told us. It was considered the \"maximalist\" option: After an initial bombardment of hundreds of targets, the decisive phase would come in the following few days.</p>\n<p>At various points when officials weighed this \"maximalist\" option, military planners also projected what might happen further out, with the possibility that strikes may continue for weeks. They reasoned that if Iran responded with ballistic missiles — many of those missiles were already positioned for launch at U.S. and Israeli targets — the U.S. would strike launchers, storage sites, and transportation routes. Each Iranian missile launch would not only threaten U.S. bases and Israel but also force Washington to expend costly and limited air-defense interceptors and risk an escalatory cycle of attacks.</p>\n<p>Officials also anticipated the need to defend economic choke points. Within 12 hours of the opening strikes, Iran would move to close the Strait of Hormuz, the planners imagined, through which roughly one-fifth of the world's oil flows.</p>\n<p>But the planners concluded that military strikes alone would not produce regime change, which may help explain why Trump specifically called on the Iranian people to overthrow the government once the bombing campaign stops. Now the question is how long the strikes will continue. The U.S. may have to sustain operations until alternative leadership emerges. But that risks exposing protesters to further brutality if the regime doesn't collapse. Tehran has long prepared for such a challenge and almost immediately shut down internet access, leaving state media the primary source of information.</p>\n<p>Stopping strikes too soon could leave the current regime intact and foreclose future nuclear negotiations. Continuing until the costs become unbearable — even for the existing leadership — might force Iran to negotiate from a position of weakness. \"The next time we sit down with Iran, it must not be as equals,\" one former defense official told us. \"It must be as victor and vanquished.\" Achieving that outcome, planners believed, could require weeks of sustained attacks.</p>\n<h2>'The Worst-Case Outcome Is Complete Chaos'</h2>\n<p>A prolonged campaign could also produce a failed state with enriched uranium, destabilize crucial oil routes, threaten Gulf allies, trigger a refugee crisis, and disrupt the global economy. \"The worst-case outcome is complete chaos,\" Dana Stroul, the former deputy assistant secretary of defense for the Middle East, told us, warning of regional spillover.</p>\n<p>Trump has told confidants that he believes that his legacy could be defined by his overthrow of the regimes in Venezuela, Iran, and potentially Cuba. He is drawn to the idea of redrawing global maps and doing what his predecessors, both Democratic and Republican, could not. But in his eight-minute address via Truth Social shortly after the strikes began, Trump offered no timeline for how long the U.S. would wait for the Iranian people to overthrow their government. (He later said on Truth Social that the attacks could last for a week or more.) If the ayatollah-led regime does collapse, the IRGC would be best positioned to step in — and could prove even more hostile to Washington. Alternatively, the U.S. could redefine success mid-operation and declare victory after degrading Iran's defenses. If Iranians haven't risen up to seize control by then, that could be portrayed as their failing, not Trump's.</p>\n<p>Stroul outlined a more hopeful scenario: Opposition leaders emerge from prison to unify the country, assuming that sustained strikes dismantle the regime's religious and security apparatus. Such a prolonged campaign would run counter to the Trump administration's recent pledge to pivot to China and address threats in the Western Hemisphere. But the record of success in regime-change initiatives is sparse, especially when the nation seeking a revolution chooses to engage only from a distance. Unlike the decision Bush made when he ordered the invasion of Iraq, no ground troops are expected to be deployed in Iran. Trump wants to avoid a quagmire. But even with the supreme leader dead — and with at least 150 aircraft and drones, more than a dozen destroyers, and two aircraft carriers at Trump's disposal — the president may find it difficult to achieve his ultimate goals.</p>\n<p>---</p>\n<p><em>Shane Harris, Isaac Stanley-Becker, Nancy A. Youssef, Ashley Parker, Jonathan Lemire, and Michael Scherer are staff writers and contributors at The Atlantic.</em></p>",
+    "url": "posts/2026-02-28-where-does-the-iran-war-go-from-here.html"
+  },
+  {
+    "id": 3,
     "slug": "on-the-pleasure-of-finishing",
     "date": "2026-02-22",
     "tag": "observation",
@@ -10,7 +30,7 @@ const posts = [
     "url": "posts/2026-02-22-on-the-pleasure-of-finishing.html"
   },
   {
-    "id": 2,
+    "id": 4,
     "slug": "on-reading-slowly",
     "date": "2026-02-20",
     "tag": "essay",
@@ -20,7 +40,7 @@ const posts = [
     "url": "posts/2026-02-20-on-reading-slowly.html"
   },
   {
-    "id": 3,
+    "id": 5,
     "slug": "the-value-of-constraints",
     "date": "2026-02-17",
     "tag": "thought",
@@ -30,7 +50,7 @@ const posts = [
     "url": "posts/2026-02-17-the-value-of-constraints.html"
   },
   {
-    "id": 4,
+    "id": 6,
     "slug": "on-the-art-of-doing-nothing",
     "date": "2026-02-14",
     "tag": "essay",
@@ -40,7 +60,7 @@ const posts = [
     "url": "posts/2026-02-14-on-the-art-of-doing-nothing.html"
   },
   {
-    "id": 5,
+    "id": 7,
     "slug": "why-i-prefer-analog-clocks",
     "date": "2026-02-08",
     "tag": "observation",
@@ -50,7 +70,7 @@ const posts = [
     "url": "posts/2026-02-08-why-i-prefer-analog-clocks.html"
   },
   {
-    "id": 6,
+    "id": 8,
     "slug": "the-quiet-disappearance-of-third-places",
     "date": "2026-02-01",
     "tag": "essay",
@@ -60,7 +80,7 @@ const posts = [
     "url": "posts/2026-02-01-the-quiet-disappearance-of-third-places.html"
   },
   {
-    "id": 7,
+    "id": 9,
     "slug": "starting-without-knowing-where-it-goes",
     "date": "2026-01-22",
     "tag": "thought",
@@ -70,7 +90,7 @@ const posts = [
     "url": "posts/2026-01-22-starting-without-knowing-where-it-goes.html"
   },
   {
-    "id": 8,
+    "id": 10,
     "slug": "the-tyranny-of-the-notification",
     "date": "2026-01-15",
     "tag": "essay",
@@ -80,7 +100,7 @@ const posts = [
     "url": "posts/2026-01-15-the-tyranny-of-the-notification.html"
   },
   {
-    "id": 9,
+    "id": 11,
     "slug": "why-i-keep-a-paper-notebook",
     "date": "2026-01-08",
     "tag": "thought",
@@ -90,7 +110,7 @@ const posts = [
     "url": "posts/2026-01-08-why-i-keep-a-paper-notebook.html"
   },
   {
-    "id": 10,
+    "id": 12,
     "slug": "against-optimization",
     "date": "2025-12-28",
     "tag": "essay",
@@ -100,7 +120,7 @@ const posts = [
     "url": "posts/2025-12-28-against-optimization.html"
   },
   {
-    "id": 11,
+    "id": 13,
     "slug": "on-forgetting",
     "date": "2025-12-15",
     "tag": "observation",
@@ -110,13 +130,14 @@ const posts = [
     "url": "posts/2025-12-15-on-forgetting.html"
   },
   {
-    "id": 13,
+    "id": 14,
     "slug": "tegernsee-rundweg",
     "date": "2025-08-24",
     "tag": "trail",
     "title": "Tegernsee Rundweg",
     "excerpt": "A summer loop from the shore into the hills above the lake — and back down before the afternoon heat sets in.",
     "body": "<p>The path out of town follows the eastern shore before climbing into the hills. By ten in the morning the trail is quiet — a few older couples with walking poles, a dog pulling its owner uphill. Everyone else is still on the terrace below.</p>\n<p>There is something particular about hiking in summer heat: the shade of the forest matters in a way it doesn't at other times. You move from brightness to cool and back, and each transition feels earned.</p>\n<blockquote>A lake is not the same seen from the water and seen from above. Both are correct, but only one requires the climb.</blockquote>\n<h2>On the descent</h2>\n<p>Coming down in the early afternoon, the town looked small and exact against the water. The kind of view that makes ordinary things seem well-arranged. I sat with it for a moment before walking back in.</p>\n<p>The whole loop was about four hours. No dramatic exposure, no scrambling — just a clean circuit through beech forest and open meadow with the lake appearing and disappearing below. Exactly what a Sunday in August should be.</p>",
-    "url": "posts/2025-08-24-tegernsee-rundweg.html"
+    "url": "posts/2025-08-24-tegernsee-rundweg.html",
+    "gpx": "gpx/2025-08-24-tegernsee-rundweg.gpx"
   }
 ];
